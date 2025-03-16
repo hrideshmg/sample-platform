@@ -40,9 +40,9 @@ For deployment of the platform on a Google Cloud VM instance, one would require 
 Windows Server 2019 Datacenter
                 - Boot type disk: Balanced persistent disk
                 - Size: 50GB
-        - Choose the service account as the service account you just created for the platform.
-        - Select the "Allow HTTP traffic" and "Allow HTTPS traffic" checkboxes.
-        - Navigate to Advanced options -> Networking -> Network Interfaces -> External IPv4 address, and click on Create IP Address and reserve a new static external IP address for the platform.
+        - Navigate to Security and choose the service account as the service account you just created for the platform.
+        - Navigate to Network and select the "Allow HTTP traffic" and "Allow HTTPS traffic" checkboxes.
+        - Under Network Interfaces -> default, reserve a new static external IPv4 address for the platform.
 
 2. Setting up firewall settings
     
@@ -80,13 +80,13 @@ sudo git clone https://github.com/CCExtractor/sample-platform.git
 Mounting on Linux OS can be done using [Google Cloud Storage FUSE](https://cloud.google.com/storage/docs/gcs-fuse).
 
 Steps:
-- Install gcsfuse using [official documentation](https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/docs/installing.md) or using the following script 
+- Install gcsfuse using [official documentation](https://cloud.google.com/storage/docs/cloud-storage-fuse/install) or using the following script
     ```
     curl -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/download/v0.39.2/gcsfuse_0.39.2_amd64.deb
     sudo dpkg --install gcsfuse_0.39.2_amd64.deb
     rm gcsfuse_0.39.2_amd64.deb
     ```
-- Now, there are multiple ways to mount the bucket, official documentation [here](https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/docs/mounting.md). 
+- Now, there are multiple ways to mount the bucket, official documentation [here](https://cloud.google.com/storage/docs/cloud-storage-fuse/mount-bucket).
 
     For Ubuntu and derivatives, assuming `/repository` to be the location of samples to be configured, an entry can be added to `/etc/fstab` file, replace _GCS_BUCKET_NAME_ with the name of the bucket created for the platform:
     ```
