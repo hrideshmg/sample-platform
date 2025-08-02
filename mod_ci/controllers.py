@@ -443,8 +443,8 @@ def create_instance(compute, project, zone, test, reportURL) -> Dict:
     from run import config
 
     if test.platform == TestPlatform.linux:
-        image_response = compute.images().getFromFamily(project=config.get('LINUX_INSTANCE_PROJECT_NAME', ''),
-                                                        family=config.get('LINUX_INSTANCE_FAMILY_NAME', '')).execute()
+        image_response = compute.images().get(project=config.get('LINUX_INSTANCE_PROJECT_NAME', ''),
+                                                        image=config.get('LINUX_INSTANCE_NAME', '')).execute()
         startup_script = open(os.path.join(config.get('INSTALL_FOLDER', ''), 'install', 'ci-vm',
                                            'ci-linux', 'startup-script.sh'), 'r').read()
         metadata_items = [
