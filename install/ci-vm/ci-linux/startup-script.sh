@@ -1,8 +1,8 @@
 #!/bin/bash 
 
-curl -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/download/v0.39.2/gcsfuse_0.39.2_amd64.deb
-dpkg --install gcsfuse_0.39.2_amd64.deb
-rm gcsfuse_0.39.2_amd64.deb
+curl -L -O https://github.com/GoogleCloudPlatform/gcsfuse/releases/download/v3.2.0/gcsfuse_3.2.0_amd64.deb
+dpkg --install gcsfuse_3.2.0_amd64.deb
+rm gcsfuse_3.2.0_amd64.deb
 
 apt install gnupg ca-certificates
 gpg --homedir /tmp --no-default-keyring --keyring /usr/share/keyrings/mono-official-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
